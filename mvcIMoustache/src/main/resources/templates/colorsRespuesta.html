@@ -1,0 +1,15 @@
+<p>Colors in List</p>
+<ul>
+	{{#colors}}
+	<li>{{.}}</li> 
+	{{/colors}}
+</ul>
+<table>
+	{{#colors}}
+	<tr>
+		<td>{{-index}}</td>
+		<td>{{.}}</td>
+
+	</tr>
+	{{/colors}}
+</table>
