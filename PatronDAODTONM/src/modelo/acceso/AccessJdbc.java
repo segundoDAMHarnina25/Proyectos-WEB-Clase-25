@@ -11,9 +11,11 @@ import java.sql.Statement;
 import mapper.Adapter;
 
 public class AccessJdbc {
+
+
 	// Estos datos de configuracion deben estar en otro sitio
 	private String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
-	private String URL_BASEDATOS = "jdbc:mysql://localhost:3306";
+	private String URL_BASEDATOS = "jdbc:mysql://localhost:3307";
 	private String BBDD = "";
 	private Connection conexion = null;
 	private boolean accesible = false;
@@ -75,5 +77,11 @@ public class AccessJdbc {
 		}
 		return -1;
 	}
+	public String getBBDD() {
+		return BBDD;
+	}
 
+	public void setBBDD(String bBDD) {
+		BBDD = bBDD;
+	}
 }

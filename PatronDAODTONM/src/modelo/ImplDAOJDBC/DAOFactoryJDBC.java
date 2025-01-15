@@ -13,7 +13,7 @@ public class DAOFactoryJDBC extends DaoFactory {
 	public DAOFactoryJDBC() throws ClassNotFoundException, SQLException {
 		super();
 		//EStos parametros pueden ser pasado por parametros o configurados en otro sitio
-		accessJdbc=new AccessJdbc("ejemplo", "root", "");
+		accessJdbc=new AccessJdbc("hoteles", "harnina", "zzzz");
 	}
 
 

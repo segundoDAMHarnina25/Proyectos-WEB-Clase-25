@@ -22,7 +22,7 @@ public class PersonaDAOJdbc implements PersonaDAO {
 
 	@Override
 	public void create(Persona entidad) {
-		String sql = "INSERT INTO ejemplo.persona  (nombre, apellidos,alta) VALUES ( ?, ?, ?)";
+		String sql = "INSERT INTO "+accessJdbc.getBBDD()+".persona(nombre) VALUES ( ?)";
 		accessJdbc.update(sql,new PersonaAdapter(entidad));
 	}
 

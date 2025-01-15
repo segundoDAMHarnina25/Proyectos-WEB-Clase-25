@@ -3,6 +3,7 @@ package mapper;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 import modelo.Entity.Persona;
@@ -19,11 +20,7 @@ public class PersonaAdapter implements Adapter {
 	public void adapt(PreparedStatement declaracion) throws SQLException {
 		// Establecer los valores de los par�metros en la sentencia SQL
 		declaracion.setString(1, persona.getNombre());
-		declaracion.setString(2, "Salasar con s");
-		Calendar calendario = Calendar.getInstance();
-        // Obtiene la fecha y hora actual
-        Date fechaActual = new Date(calendario.getTime().getTime());
-		declaracion.setDate(3, fechaActual);
+		declaracion.setDate(3,Date.valueOf(LocalDate.now()));
 
 		// Ejecutar la sentencia SQL
 		declaracion.executeUpdate();
