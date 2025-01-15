@@ -1,13 +1,15 @@
-package modelo.daoImpl;
+package modelo.ImplDAOJDBC;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import mapper.PersonaAdapter;
 import mapper.PersonaMapper;
-import modelo.abstractDAO.PersonaDAO;
+import modelo.AbstractDAO.PersonaDAO;
+import modelo.Entity.Persona;
 import modelo.acceso.AccessJdbc;
-import modelo.entity.Persona;
 
 public class PersonaDAOJdbc implements PersonaDAO {
 
@@ -20,7 +22,8 @@ public class PersonaDAOJdbc implements PersonaDAO {
 
 	@Override
 	public void create(Persona entidad) {
-		// TODO Auto-generated method stub
+		String sql = "INSERT INTO ejemplo.persona  (nombre, apellidos,alta) VALUES ( ?, ?, ?)";
+		accessJdbc.update(sql,new PersonaAdapter(entidad));
 	}
 
 	@Override

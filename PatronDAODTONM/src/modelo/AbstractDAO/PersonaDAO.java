@@ -1,6 +1,6 @@
-package modelo.abstractDAO;
+package modelo.AbstractDAO;
 
-import modelo.entity.Persona;
+import modelo.Entity.Persona;
 
 public interface PersonaDAO extends GenericDAO<Persona, Long> {
 	public Persona findByName(String name);
