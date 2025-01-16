@@ -38,6 +38,7 @@ public class AccessJdbc {
 				conjuntoResultados = instruccion.executeQuery(query);
 				metaDatos = conjuntoResultados.getMetaData();
 			} catch (SQLException e) {
+				e.printStackTrace();
 				return null;
 			}
 			return conjuntoResultados;
@@ -50,6 +51,8 @@ public class AccessJdbc {
 		try {
 			instruccion = conexion.prepareStatement(query);
 			adapter.adapt(instruccion);
+			// Ejecutar la sentencia SQL
+			instruccion.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

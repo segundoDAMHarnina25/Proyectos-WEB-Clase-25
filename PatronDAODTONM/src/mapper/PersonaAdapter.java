@@ -19,10 +19,7 @@ public class PersonaAdapter implements Adapter {
 	@Override
 	public void adapt(PreparedStatement declaracion) throws SQLException {
 		// Establecer los valores de los par�metros en la sentencia SQL
-		declaracion.setString(1, persona.getNombre());
-		declaracion.setDate(3,Date.valueOf(LocalDate.now()));
-
-		// Ejecutar la sentencia SQL
-		declaracion.executeUpdate();
+		declaracion.setLong(1, persona.getId());
+		declaracion.setString(2,persona.getNombre());
 	}
 }
