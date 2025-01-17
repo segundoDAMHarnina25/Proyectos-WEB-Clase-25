@@ -64,7 +64,7 @@ public class PersonaServiceImpl implements PersonaService {
 	@Override
 	public boolean change(String dni, PersonaPatchDTO persona) {
 		return getByDNI(dni).map(person -> {
-			applyChanges(person,persona);
+			applyChanges(person, persona);
 			return true;
 		}).orElse(false);
 	}
@@ -74,14 +74,15 @@ public class PersonaServiceImpl implements PersonaService {
 	}
 
 	private String[] getNullPropertyNames(PersonaPatchDTO persona) {
-		 final BeanWrapperImpl src = new BeanWrapperImpl(persona);
-		 Set<String> emptyNames = new HashSet<String>();
-		 PropertyDescriptor[] propertyDescriptors = src.getPropertyDescriptors();
-		 for (PropertyDescriptor propertyDescriptor : propertyDescriptors) {
+		final BeanWrapperImpl src = new BeanWrapperImpl(persona);
+		Set<String> emptyNames = new HashSet<String>();
+		PropertyDescriptor[] propertyDescriptors = src.getPropertyDescriptors();
+		for (PropertyDescriptor propertyDescriptor : propertyDescriptors) {
 			Object propertyValue = src.getPropertyValue(propertyDescriptor.getName());
-			if(propertyValue==null) emptyNames.add(propertyDescriptor.getName());
+			if (propertyValue == null)
+				emptyNames.add(propertyDescriptor.getName());
 		}
-		 String[] ara=new String[emptyNames.size()];
+		String[] ara = new String[emptyNames.size()];
 		return emptyNames.toArray(ara);
 	}
 
