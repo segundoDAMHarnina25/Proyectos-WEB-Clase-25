@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class PersonaPatchDTO {
 	private Integer edad;
+	private String nombre;
 }

@@ -67,6 +67,7 @@ public class PersonaServiceImpl implements PersonaService {
 
 	private void applyChanges(Persona person, PersonaPatchDTO persona) {
 		if(persona.getEdad()!=null) person.setEdad(persona.getEdad());
+		if(persona.getNombre()!=null) person.setNombre(persona.getNombre());
 	}
 
 }
