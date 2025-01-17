@@ -1,7 +1,13 @@
 package com.example.demo.services;
 
+import java.beans.PropertyDescriptor;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapperImpl;
 
 import com.example.demo.modelo.Persona;
 import com.example.demo.modelo.PersonaPatchDTO;
@@ -58,16 +64,25 @@ public class PersonaServiceImpl implements PersonaService {
 	@Override
 	public boolean change(String dni, PersonaPatchDTO persona) {
 		return getByDNI(dni).map(person -> {
-			
 			applyChanges(person,persona);
-			
 			return true;
 		}).orElse(false);
 	}
 
 	private void applyChanges(Persona person, PersonaPatchDTO persona) {
-		if(persona.getEdad()!=null) person.setEdad(persona.getEdad());
-		if(persona.getNombre()!=null) person.setNombre(persona.getNombre());
+		BeanUtils.copyProperties(persona, person, getNullPropertyNames(persona));
+	}
+
+	private String[] getNullPropertyNames(PersonaPatchDTO persona) {
+		 final BeanWrapperImpl src = new BeanWrapperImpl(persona);
+		 Set<String> emptyNames = new HashSet<String>();
+		 PropertyDescriptor[] propertyDescriptors = src.getPropertyDescriptors();
+		 for (PropertyDescriptor propertyDescriptor : propertyDescriptors) {
+			Object propertyValue = src.getPropertyValue(propertyDescriptor.getName());
+			if(propertyValue==null) emptyNames.add(propertyDescriptor.getName());
+		}
+		 String[] ara=new String[emptyNames.size()];
+		return emptyNames.toArray(ara);
 	}
 
 }
