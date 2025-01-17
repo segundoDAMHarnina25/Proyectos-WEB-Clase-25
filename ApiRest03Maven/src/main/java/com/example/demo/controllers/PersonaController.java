@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.modelo.Persona;
+import com.example.demo.modelo.PersonaPatchDTO;
 import com.example.demo.services.PersonaService;
 import com.example.demo.services.PersonaServiceImpl;
 
@@ -45,7 +46,7 @@ public class PersonaController {
 	}
 	
 	@PatchMapping("actualizacion")
-	public boolean cambiarDato(@RequestParam String dni,@RequestBody Persona persona) {
+	public boolean cambiarDato(@RequestParam String dni,@RequestBody PersonaPatchDTO persona) {
 		return personaService.change(dni,persona);
 	}
 	

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.modelo.Persona;
+import com.example.demo.modelo.PersonaPatchDTO;
 import com.example.demo.repositorios.PersonaRepository;
 import com.example.demo.repositorios.PersonaRepositoryMasFalseQueJudas;
 
@@ -55,9 +56,7 @@ public class PersonaServiceImpl implements PersonaService {
 	}
 
 	@Override
-	public boolean change(String dni, Persona persona) {
-		// clausula de guarda
-		if (!dni.equals(persona.getDni()))	return false;
+	public boolean change(String dni, PersonaPatchDTO persona) {
 		return getByDNI(dni).map(person -> {
 			
 			applyChanges(person,persona);
@@ -66,9 +65,8 @@ public class PersonaServiceImpl implements PersonaService {
 		}).orElse(false);
 	}
 
-	private void applyChanges(Persona person, Persona persona) {
-		if(persona.getNombre()!=null) person.setNombre(persona.getNombre());
-		if(Integer.valueOf(persona.getEdad())!=null) person.setEdad(persona.getEdad());
+	private void applyChanges(Persona person, PersonaPatchDTO persona) {
+		if(persona.getEdad()!=null) person.setEdad(persona.getEdad());
 	}
 
 }
