@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +37,16 @@ public class PersonaController {
 	@PostMapping("insercion")
 	public boolean insertar(@RequestBody Persona persona) {
 		return personaService.add(persona);
+	}
+	
+	@PutMapping("sustitucion")
+	public boolean actualizar(@RequestParam String dni,@RequestBody Persona persona) {
+		return personaService.update(dni,persona);
+	}
+	
+	@PatchMapping("actualizacion")
+	public boolean cambiarDato(@RequestParam String dni,@RequestBody Persona persona) {
+		return personaService.change(dni,persona);
 	}
 	
 	@GetMapping("all")

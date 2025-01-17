@@ -13,4 +13,8 @@ public interface PersonaService {
 	public Optional<Persona> getByDNI(String DNI);
 
 	public List<Persona> getAll();
+
+	public boolean update(String dni, Persona persona);
+
+	public boolean change(String dni, Persona persona);
 }
