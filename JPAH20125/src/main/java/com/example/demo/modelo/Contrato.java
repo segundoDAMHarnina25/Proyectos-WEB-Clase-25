@@ -21,7 +21,7 @@ public class Contrato {
 	private Long id;
 	@NonNull
 	private String descripcion;
-	@OneToOne
+	@OneToOne()
 	@NonNull
 	private Persona persona;
 }
