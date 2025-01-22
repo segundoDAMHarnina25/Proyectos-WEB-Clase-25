@@ -45,8 +45,11 @@ class PedidoRepositoryTest {
 //		assertEquals(0, byAmountGreaterThan.size());
 //		List<Pedido> byPersona = pedidoRepository.findByPersona(personaRepository.findById(1L).get());
 //		assertEquals(3, byPersona.size());
-		Optional<Persona> byPedido = personaRepository.findByPedidos(segundo);
-		assertTrue(byPedido.isPresent());
+//		Optional<Persona> byPedido = personaRepository.findByPedidos(segundo);
+//		assertTrue(byPedido.isPresent());
+		Optional<Persona> personaById = pedidoRepository.findPersonaById(segundo.id);
+		assertTrue(personaById.isPresent());
+		
 	}
 
 }
