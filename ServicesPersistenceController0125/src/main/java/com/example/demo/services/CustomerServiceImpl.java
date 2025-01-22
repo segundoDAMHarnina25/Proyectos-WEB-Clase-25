@@ -13,19 +13,15 @@ import com.example.demo.populaters.Populaters;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-	
+
 	private final Populaters populaters;
-	private  List<Customer> customers;
+	private List<Customer> customers;
 	private List<Item> items;
 	private List<OrderCustomer> orders;
 
-	
 	public CustomerServiceImpl(Populaters populaters) {
 		super();
 		this.populaters = populaters;
-		this.customers=this.populaters.customers;
-		this.items=this.populaters.items;
-		this.orders=this.populaters.orders;
 	}
 
 	@Override
@@ -48,8 +44,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public boolean addLine(Long orderCustomerId, OrderLine line) {
-		Optional<OrderCustomer> orderCustomer=findCustomerById(orderCustomerId);
-		if(orderCustomer.isPresent()) {
+		Optional<OrderCustomer> orderCustomer = findCustomerById(orderCustomerId);
+		if (orderCustomer.isPresent()) {
 			return orderCustomer.get().addLine(line);
 		}
 		return false;

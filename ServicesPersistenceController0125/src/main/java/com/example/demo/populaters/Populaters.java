@@ -9,16 +9,22 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.model.entities.Customer;
 import com.example.demo.model.entities.Item;
-import com.example.demo.model.entities.OrderCustomer;
+import com.example.demo.model.repositories.CustomerRepository;
+import com.example.demo.model.repositories.ItemRepository;
 
 import jakarta.annotation.PostConstruct;
 
 
 @Component
 public class Populaters {
-	public List<Customer> customers;
-	public List<Item> items;
-	public List<OrderCustomer> orders;
+	CustomerRepository customerRepository;
+	ItemRepository itemsRepository;
+	
+	public Populaters(CustomerRepository customerRepository, ItemRepository itemsRepository) {
+		super();
+		this.customerRepository = customerRepository;
+		this.itemsRepository = itemsRepository;
+	}
 
 	@PostConstruct
 	public void populate() {
@@ -42,9 +48,8 @@ public class Populaters {
 	            "Isabel Ortega",
 	            "Francisco Rojas",
 	            "Marta Serrano");
-		customers=new ArrayList<>();
 		for (int i = 0; i < names.size(); i++) {
-				customers.add(new Customer((long)i+1, names.get(i)));
+				this.customerRepository.save(new Customer(names.get(i)));
 		}
 		List<String> itemNames = Arrays.asList(
 	            "Teléfono móvil",
@@ -68,9 +73,8 @@ public class Populaters {
 	            "Micrófono USB",
 	            "Lámpara LED de escritorio"
 	        );
-		items=new ArrayList<>();
 		for (int i = 0; i < itemNames.size(); i++) {
-			items.add(new Item((long)i+1, itemNames.get(i), 0, i+20, i+10, new BigDecimal((i%10)*5)));
+			itemsRepository.save(new Item(itemNames.get(i), 0, i+20, i+10, new BigDecimal((i%10)*5)));
 		}
 		
 		
