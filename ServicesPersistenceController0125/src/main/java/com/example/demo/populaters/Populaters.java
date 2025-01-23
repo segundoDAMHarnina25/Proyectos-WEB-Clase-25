@@ -74,7 +74,7 @@ public class Populaters {
 	            "Lámpara LED de escritorio"
 	        );
 		for (int i = 0; i < itemNames.size(); i++) {
-			itemsRepository.save(new Item(itemNames.get(i), 0, i+20, i+10, new BigDecimal((i%10)*5)));
+			itemsRepository.save(new Item(itemNames.get(i), 0, i+20, new BigDecimal((i%10)*5)));
 		}
 		
 		

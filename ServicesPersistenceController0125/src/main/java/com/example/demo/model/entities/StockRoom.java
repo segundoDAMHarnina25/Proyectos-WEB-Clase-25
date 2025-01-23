@@ -1,32 +1,26 @@
 package com.example.demo.model.entities;
 
-import java.math.BigDecimal;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
-public class Item {
+public class StockRoom {
+	/*
+	 * El problema radica en que un item puede ser almacenado en cantidad variable
+	 * en varios almacenes, de la misma que un almacen puede contener muchos items
+	 * en cantidad variable
+	 * 
+	 * Esto me servira par que un servicio me pueda decir el total de un  item concreto
+	 * en todos los almacenes
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NonNull
-	private String name;
-	@NonNull
-	private int minStock;
-	@NonNull
-	private int maxStock;
-	@NonNull
-//	@Column(precision = 19, scale = 2)
-	private BigDecimal price;
+	
 }
