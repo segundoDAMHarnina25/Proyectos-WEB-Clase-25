@@ -5,10 +5,12 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -24,6 +26,8 @@ public class Partido {
 	private Long id;
 	@NonNull
 	private int homeGoals,awayGoals;
+	@OneToMany(mappedBy = "partido",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	private List<Participacion> particiones=new ArrayList();
 	
 	
 	

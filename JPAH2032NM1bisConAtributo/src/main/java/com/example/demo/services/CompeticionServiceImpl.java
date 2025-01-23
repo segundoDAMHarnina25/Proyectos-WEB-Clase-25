@@ -12,13 +12,12 @@ import com.example.demo.repositories.PartidoRepository;
 public class CompeticionServiceImpl implements CompeticionService {
 	
 	PartidoRepository partidoRepository;
-	ParticipacionRepository participacionRepository;
+
 
 	@Override
 	public List<Jugador> getJugadoresByPartido(Long id) {
-		Optional<Partido> byId = partidoRepository.findById(id);
-		List<Participacion> findbyPartido = participacionRepository.findbyPartido(byId.get());
-		return findbyPartido.stream().map(Participacion::getJugador).toList();
+		return partidoRepository.findById(id).get()
+				.getParticiones().stream().map(Participacion::getJugador).toList();
 	}
 
 }
