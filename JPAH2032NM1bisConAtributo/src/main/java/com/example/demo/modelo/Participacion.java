@@ -1,34 +1,30 @@
 package com.example.demo.modelo;
 
-import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+
 @Entity
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-@IdClass(ReservaID.class)
-public class Reserva {
-
+public class Participacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	@NonNull
-	private LocalDate fecha;
-	@Id
 	@ManyToOne
-	private Persona persona;
-	@Id
+	private Jugador jugador;
+	@NonNull
 	@ManyToOne
-	private Hotel hotel;
-	
+	private Partido partido;
+	private int duracion=0;
 }
