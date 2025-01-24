@@ -42,18 +42,18 @@ class PersonServiceImplTest {
 		when(this.personServiceMock.insertPerson(e1)).thenReturn(false);
 		// llamada a un metodo con parametros, con retorno
 		when(this.personServiceMock.insertTwoPerson(any(), any())).thenReturn(true);
-//		when(this.personServiceMock.insertTwoPerson(any(),eq(e1))).thenReturn(false);
-		// ses sustituye por esta compuesta
-//		when(this.personServiceMock.insertTwoPerson(
-//				any(), 
-//				argThat(pers -> pers.equals(e1) || pers.equals(e2))))
-//		.thenReturn(true);
-		// cuidao con la mezcla de null y matchers
-//		of = List.of(e1,e2,new Person("luis",22));
-//		when(this.personServiceMock.insertTwoPerson(
-//				any(), 
-//				argThat(pers-> of.contains(pers))))
-//		.thenReturn(true);
+		when(this.personServiceMock.insertTwoPerson(any(),eq(e1))).thenReturn(false);
+//		 ses sustituye por esta compuesta
+		when(this.personServiceMock.insertTwoPerson(
+				any(), 
+				argThat(pers -> pers!=null&&(pers.equals(e1) || pers.equals(e2)))))
+		.thenReturn(true);
+//		cuidao con la mezcla de null y matchers
+		of = List.of(e1,e2,new Person("luis",22,"Murcia"));
+		when(this.personServiceMock.insertTwoPerson(
+				any(), 
+				argThat(pers-> pers != null&&of.contains(pers))))
+		.thenReturn(true);
 		when(this.personServiceMock.insertTwoPerson(isNull(), any())).thenReturn(false);
 		when(this.personServiceMock.insertTwoPerson(any(), isNull())).thenReturn(false);
 		when(this.personServiceMock.getPersonFromProvincia(
