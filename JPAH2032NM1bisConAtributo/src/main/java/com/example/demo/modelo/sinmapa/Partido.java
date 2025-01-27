@@ -9,7 +9,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +27,4 @@ public class Partido {
 	private int homeGoals,awayGoals;
 	@OneToMany(mappedBy = "partido",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	private List<Participacion> particiones=new ArrayList();
-	
-	
-	
 }
