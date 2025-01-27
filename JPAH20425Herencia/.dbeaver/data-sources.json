@@ -1,13 +1,13 @@
 {
 	"folders": {},
 	"connections": {
-		"h2gis_embedded-19482aafa49-19eb1e212a7a0179": {
+		"h2gis_embedded-194a6e1973c-5e3e6f3c48cbf896": {
 			"provider": "h2gis",
 			"driver": "h2gis_embedded",
-			"name": "H2GIS Embedded",
+			"name": "H2GIS Embedded 2",
 			"save-password": true,
 			"configuration": {
-				"url": "jdbc:h2:~/Desktop/h2bbdd/JPAH20225",
+				"url": "jdbc:h2:~/Desktop/h2bbdd/JPAH20425Herencia",
 				"configurationType": "URL",
 				"type": "dev",
 				"closeIdleConnection": true,
