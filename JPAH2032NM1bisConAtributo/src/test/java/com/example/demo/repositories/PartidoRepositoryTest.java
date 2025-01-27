@@ -3,13 +3,14 @@ package com.example.demo.repositories;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.demo.modelo.sinmapa.Jugador;
+import com.example.demo.modelo.sinmapa.Partido;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 import java.util.Optional;
-
-import com.example.demo.modelo.Jugador;
-import com.example.demo.modelo.Partido;
 
 import jakarta.transaction.Transactional;
 

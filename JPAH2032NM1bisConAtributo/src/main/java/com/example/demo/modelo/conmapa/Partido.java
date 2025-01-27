@@ -1,4 +1,4 @@
-package com.example.demo.modelo;
+package com.example.demo.modelo.conmapa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +26,4 @@ public class Partido {
 	private Long id;
 	@NonNull
 	private int homeGoals,awayGoals;
-	@OneToMany(mappedBy = "partido",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	private List<Participacion> particiones=new ArrayList();
-	
-	
-	
 }

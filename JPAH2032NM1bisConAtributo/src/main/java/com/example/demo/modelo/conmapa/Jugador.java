@@ -1,12 +1,9 @@
-package com.example.demo.modelo;
-
-import java.util.List;
+package com.example.demo.modelo.conmapa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -16,15 +13,10 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class Participacion {
+public class Jugador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	@NonNull
-	@ManyToOne
-	private Jugador jugador;
-	@NonNull
-	@ManyToOne
-	private Partido partido;
-	private int duracion=0;
+	private String nombre;
 }

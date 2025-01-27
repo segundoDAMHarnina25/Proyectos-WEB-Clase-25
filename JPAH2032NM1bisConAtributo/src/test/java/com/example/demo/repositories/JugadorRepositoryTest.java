@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.modelo.Jugador;
+import com.example.demo.modelo.sinmapa.Jugador;
 
 @SpringBootTest
 class JugadorRepositoryTest {
