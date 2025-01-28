@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,4 +24,9 @@ public interface CustomerService {
 	// funcionalidades extra
 	public boolean addLine(Long orderCustomerId,OrderLine line);
 	public List<OrderCustomer> getAllOrders();
+
+	/**
+	 * Entrega una lista de Clientes que superan una cantidad minima
+	 */
+	List<Customer> getCustomersMinimumAmount(List<OrderCustomer> orders, BigDecimal minimunQuantity);
 }

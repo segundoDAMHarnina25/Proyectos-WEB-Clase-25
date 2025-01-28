@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,15 +15,9 @@ import com.example.demo.populaters.Populaters;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-	private final Populaters populaters;
 	private List<Customer> customers;
 	private List<Item> items;
 	private List<OrderCustomer> orders;
-
-	public CustomerServiceImpl(Populaters populaters) {
-		super();
-		this.populaters = populaters;
-	}
 
 	@Override
 	public boolean save(Customer customer) {
@@ -61,4 +56,12 @@ public class CustomerServiceImpl implements CustomerService {
 		return null;
 	}
 
+	/**
+	 * Entrega una lista de Clientes que superan una cantidad minima
+	 */
+	@Override
+	public List<Customer> getCustomersMinimumAmount(List<OrderCustomer> orders, BigDecimal minimunQuantity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

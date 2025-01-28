@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -16,6 +18,9 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
+@Table(uniqueConstraints = {
+		@UniqueConstraint(columnNames = {"item_id","orderCustomer_id"})
+})
 public class OrderLine {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
