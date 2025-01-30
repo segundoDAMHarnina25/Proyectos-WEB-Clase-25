@@ -27,10 +27,6 @@ public class Persona {
 		super();
 	}
 
-	
-
-
-
 	public String getNombre() {
 		return nombre;
 	}
