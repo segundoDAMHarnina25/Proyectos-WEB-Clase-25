@@ -1,5 +1,6 @@
 package com.adorno.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -23,5 +24,6 @@ public class Grupo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "grupoId")
-	private List<MonitorGrupoActividad> monitorGrupoActividades;
+	private List<MonitorGrupoActividad> monitorGrupoActividades=new ArrayList<>();
+	
 }

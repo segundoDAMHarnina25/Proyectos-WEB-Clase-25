@@ -69,7 +69,7 @@ public class Populaters {
 		// Grupos de 5 infantes del mismo tipo
 		List<Grupo> grupos = new ArrayList<>();
 		for (int i = 0; i < 6; i++) {
-			grupos.add(new Grupo(null, new ArrayList<>()));
+			grupos.add(new Grupo());
 		}
 		grupoRepository.saveAll(grupos);
 		List<Infante> infantes = new ArrayList<>();
