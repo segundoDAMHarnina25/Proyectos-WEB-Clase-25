@@ -15,5 +15,5 @@ public interface CampamentoService {
 	 * la actividad con id id_actividad. la lista estará vacia si la edadMaxima no es correcta
 	 * o si la actividad no existe
 	 */
-	public List<Primaria> getPrimariosPorActividad(int edadMaxima,int id_actividad);
+	public List<Primaria> getPrimariosPorActividad(int edadMaxima,Long id_actividad);
 }
