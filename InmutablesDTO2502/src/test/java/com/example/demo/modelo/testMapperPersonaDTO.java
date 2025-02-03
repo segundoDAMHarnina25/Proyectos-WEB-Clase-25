@@ -1,12 +1,9 @@
 package com.example.demo.modelo;
 
 import java.time.LocalDate;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import com.example.demo.modelo.mappers.PersonaDTOMapper;
 
 @SpringBootTest
 class testMapperPersonaDTO {
@@ -20,7 +17,7 @@ class testMapperPersonaDTO {
 		PersonaDTO mapToDTO = personaDTOMapper.mapToDTO(persona);
 		PersonaDTO personaDTO = new PersonaDTO("Julio", 2);
 		Persona mapToEntity = personaDTOMapper.mapToEntity(personaDTO);
-		System.out.println(personaDTO.toString());
+		System.out.println(mapToDTO.toString());
 		System.out.println(mapToEntity.toString());
 	}
 
