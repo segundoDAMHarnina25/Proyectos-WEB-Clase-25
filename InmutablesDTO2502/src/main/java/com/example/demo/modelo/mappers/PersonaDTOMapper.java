@@ -8,7 +8,6 @@ import com.example.demo.modelo.Persona;
 import com.example.demo.modelo.PersonaDTO;
 
 @Mapper(componentModel = "spring")
-@Component
 public interface PersonaDTOMapper {
 	PersonaDTO mapToDTO(Persona persona);
 	@Mapping(target="id",ignore=true)

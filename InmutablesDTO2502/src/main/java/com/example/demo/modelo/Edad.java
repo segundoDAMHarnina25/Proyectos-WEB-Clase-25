@@ -1,6 +1,9 @@
 package com.example.demo.modelo;
 
+import jakarta.persistence.Embeddable;
+
 //VO usado como envoltorio de propiedades no como su uso planteado
+@Embeddable
 public class Edad {
 	private int edad;
 	

@@ -1,9 +1,9 @@
 package com.example.demo.modelo;
 
-import jakarta.persistence.Id;
+import jakarta.persistence.Embeddable;
 
+@Embeddable
 public class DNI {
-	@Id
     private final String numero;
 
     public DNI(String numero) {

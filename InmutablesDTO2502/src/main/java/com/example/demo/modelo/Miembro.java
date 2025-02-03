@@ -1,5 +1,6 @@
 package com.example.demo.modelo;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
@@ -8,12 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@IdClass(DNI.class)
 public class Miembro {
 	@Id
+	@Embedded
 	private DNI dni;
 	private String nombre;
 	//usando VO para validar esta propiedad
+	@Embedded
 	private Edad edad;
 	public Miembro(String id, String nombre, int edad) {
 		super();
