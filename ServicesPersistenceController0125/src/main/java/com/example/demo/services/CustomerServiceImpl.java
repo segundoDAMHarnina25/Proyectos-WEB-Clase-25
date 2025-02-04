@@ -39,11 +39,15 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public boolean addLine(Long orderCustomerId, OrderLine line) {
-		Optional<OrderCustomer> orderCustomer = findCustomerById(orderCustomerId);
-		if (orderCustomer.isPresent()) {
-			return orderCustomer.get().addLine(line);
-		}
-		return false;
+//		Optional<OrderCustomer> orderCustomer = findCustomerById(orderCustomerId);
+//		if (orderCustomer.isPresent()) {
+//			return orderCustomer.get().addLine(line);
+//		}
+//		return false;
+		return findCustomerById(orderCustomerId)
+			.map(order->order.addLine(line))
+			.orElse(false);
+			
 	}
 
 	private Optional<OrderCustomer> findCustomerById(Long orderCustomerId) {
