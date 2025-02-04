@@ -18,7 +18,7 @@ public class SocioController {
 		return true;
 	}
 
-	@GetMapping("/aviso")
+	@GetMapping("aviso")
 	public String avisar() {
 		return "esta funciona";
 	}
