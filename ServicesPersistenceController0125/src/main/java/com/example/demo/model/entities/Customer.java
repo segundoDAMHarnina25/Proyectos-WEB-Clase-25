@@ -19,4 +19,6 @@ public class Customer {
 	private Long id;
 	@NonNull
 	private String name;
+	//add credit card as VO
+	
 }
