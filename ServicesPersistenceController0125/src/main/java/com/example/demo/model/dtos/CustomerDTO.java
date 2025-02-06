@@ -1,5 +1,5 @@
 package com.example.demo.model.dtos;
-
-public record CustomerDTO(String name) {
+//Commit:001 
+public record CustomerDTO(String name,String direccion,String telefono) {
 
 }

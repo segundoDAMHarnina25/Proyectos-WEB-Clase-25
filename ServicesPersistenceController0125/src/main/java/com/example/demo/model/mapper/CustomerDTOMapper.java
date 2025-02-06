@@ -9,7 +9,10 @@ import com.example.demo.model.entities.Customer;
 @Mapper(componentModel = "spring") 
 public interface CustomerDTOMapper {
 	CustomerDTO mapToDTO(Customer customer);
-	@Mapping(target="id",ignore=true)
-	Customer mapToEntity(CustomerDTO customerDTO);
+	//Commit:001 
+//	@Mapping(target="id",ignore=true)
+//	@Mapping(target="creditCard",ignore=true)
+//	Customer mapToEntity(CustomerDTO customerDTO);
+	//Commit:001 
 
 }

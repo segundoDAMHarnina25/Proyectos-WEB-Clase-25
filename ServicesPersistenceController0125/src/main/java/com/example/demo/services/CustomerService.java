@@ -4,12 +4,17 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.model.dtos.CustomerDTO;
 import com.example.demo.model.entities.Customer;
 import com.example.demo.model.entities.OrderCustomer;
 import com.example.demo.model.entities.OrderLine;
 
 public interface CustomerService {
-	
+	//Commit:001 
+	public Optional<CustomerDTO> getCustomerDTO(Long id);
+	public Optional<Customer> findCustomerById(Long orderCustomerId);
+
+	//Commit:001 
 	
 	// CRUD de customer
 	public boolean save(Customer customer);

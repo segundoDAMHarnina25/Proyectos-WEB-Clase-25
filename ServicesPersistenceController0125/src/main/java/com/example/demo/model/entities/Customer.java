@@ -20,5 +20,11 @@ public class Customer {
 	@NonNull
 	private String name;
 	//add credit card as VO
-	
+	//Commit:001 
+	@NonNull
+	private String direccion;
+	@NonNull
+	private String telefono;
+	private String creditCard;
+	//Commit:001 
 }
