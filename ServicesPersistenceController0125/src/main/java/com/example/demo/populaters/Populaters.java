@@ -58,7 +58,7 @@ public class Populaters {
 	            "Francisco Rojas",
 	            "Marta Serrano");
 		for (int i = 0; i < names.size(); i++) {
-				this.customerRepository.save(new Customer(names.get(i)));
+//				this.customerRepository.save(new Customer(names.get(i)));
 		}
 		List<String> itemNames = Arrays.asList(
 	            "Teléfono móvil",

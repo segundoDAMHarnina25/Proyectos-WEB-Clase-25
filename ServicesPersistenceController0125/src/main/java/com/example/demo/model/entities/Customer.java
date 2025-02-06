@@ -1,5 +1,7 @@
 package com.example.demo.model.entities;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,11 +22,12 @@ public class Customer {
 	@NonNull
 	private String name;
 	//add credit card as VO
-	//Commit:001 
 	@NonNull
 	private String direccion;
 	@NonNull
 	private String telefono;
 	private String creditCard;
-	//Commit:001 
+	//Commit:002
+	@NonNull
+	private LocalDate fechaInscripcion;
 }

@@ -1,21 +1,21 @@
 package com.example.demo.controllers;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.dtos.CustomerDTO;
+import com.example.demo.model.dtos.CustomerNewDTO;
+import com.example.demo.model.responses.CustomerNewResponse;
 
 
 public interface CustomerController {
 	
-	//Commit:001 
-	public ResponseEntity<Optional<CustomerDTO>> getCustomer(  Long id);
-	//Commit:001 
+	public ResponseEntity<Optional<CustomerDTO>> getCustomer(Long id);
+	//Commit:002
+	public ResponseEntity<CustomerNewResponse> addCustomerWayOne(String name,String telefono,String direccion,LocalDate fecha);
+	public ResponseEntity<CustomerNewResponse> addCustomerWayTwo(CustomerNewDTO customer);
 //	public ResponseEntity<OrderCustomerResponse> setOrderCustomer(RequestEntity<OrderCustomerDTO> orderCustomer);
 //	public ResponseEntity<OrderCustomerDTO> getOrderCustomer(Long id);
 ////	public ResponseEntity<OrderLineResponse> addLine(Long orderCustomerId,ItemDTO item, int quantity)

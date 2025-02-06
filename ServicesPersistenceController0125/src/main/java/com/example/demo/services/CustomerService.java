@@ -5,16 +5,18 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.model.dtos.CustomerDTO;
+import com.example.demo.model.dtos.CustomerNewDTO;
 import com.example.demo.model.entities.Customer;
 import com.example.demo.model.entities.OrderCustomer;
 import com.example.demo.model.entities.OrderLine;
+import com.example.demo.model.responses.CustomerNewResponse;
 
 public interface CustomerService {
-	//Commit:001 
 	public Optional<CustomerDTO> getCustomerDTO(Long id);
 	public Optional<Customer> findCustomerById(Long orderCustomerId);
 
-	//Commit:001 
+	//Commit:002
+	public CustomerNewResponse addNewCustomer(CustomerNewDTO customer);
 	
 	// CRUD de customer
 	public boolean save(Customer customer);
