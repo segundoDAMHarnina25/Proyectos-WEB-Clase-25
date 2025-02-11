@@ -1,6 +1,5 @@
-package com.adorno.model.document1onnBiDir;
+package com.adorno.model.documentmonnBiDirOne;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,12 +7,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Builder;
 import lombok.Data;
 
-@Document(collection = "clubs")
 @Data
 @Builder
-public class Club {
+@Document(collection = "members")
+public class Member {
 	@Id
-	private ObjectId id;
+	private String id;
+	
 	@Indexed(unique = true)
-	private String denomination;
+	private String name;
+	
+	private String email;
+	
+	
+
+	
+	
 }
