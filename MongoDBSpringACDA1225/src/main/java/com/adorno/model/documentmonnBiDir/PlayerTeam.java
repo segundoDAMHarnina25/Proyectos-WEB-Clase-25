@@ -1,5 +1,6 @@
 package com.adorno.model.documentmonnBiDir;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,10 +11,10 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-@Document(collection = "players")
+@Document(collection = "playersteams")
 public class PlayerTeam {
 	@Id
-	private Object id;
+	private ObjectId id;
 	@DBRef
 	@NonNull
 	private Player player;
