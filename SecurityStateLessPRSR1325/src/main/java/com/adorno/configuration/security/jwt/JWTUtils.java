@@ -35,9 +35,11 @@ public class JWTUtils {
 		System.out.println("JWTUtils:generando access toekn");
 		return Jwts.builder()
 				// Cuidao date de sql
-				.issuedAt(Date.valueOf(LocalDate.now().plus(1, ChronoUnit.DAYS))).subject(username)
+				.issuedAt(Date.valueOf(LocalDate.now().plus(1, ChronoUnit.DAYS)))
+				.subject(username)
 				// algoritmo por defecto HS256
-				.signWith(getSignatureKey()).compact();
+				.signWith(getSignatureKey())
+				.compact();
 	}
 
 	// ValidarToken
@@ -61,7 +63,11 @@ public class JWTUtils {
 	}
 
 	private Claims getAllClaims(String token) {
-		return Jwts.parser().verifyWith(getSignatureKey()).build().parseSignedClaims(token).getPayload();
+		return Jwts.parser()
+				.verifyWith(getSignatureKey())
+				.build()
+				.parseSignedClaims(token)
+				.getPayload();
 	}
 
 	// get firma del token un valor codificado basado en la secretKey
