@@ -1,6 +1,7 @@
 package com.adorno.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +32,7 @@ public class PrincipalController {
 
 	@GetMapping("helloSecured")
 	public String helloS() {
+		System.out.println("PrincipalController: entrando en helloSecured");
 		return "SEGURO Hola que tal?";
 	}
 

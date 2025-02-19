@@ -47,12 +47,13 @@ public class UserService {
 
 	private Set<RoleEntity> fillRoles(String[] t) {
 		if (ERole.validate(t)) {
-			return Arrays.asList(t).stream().map((rol) -> {
-				ERole rolresult = ERole.getRole(rol).get();
-				Optional<RoleEntity> byName = roleRepository.findByName(rolresult);
-				RoleEntity roleEntity = byName.get();
-				return roleEntity;
-			}).collect(Collectors.toSet());
+			return Arrays.asList(t).stream()
+					.map((rol) -> {
+							ERole rolresult = ERole.getRole(rol).get();
+							Optional<RoleEntity> byName = roleRepository.findByName(rolresult);
+							RoleEntity roleEntity = byName.get();
+							return roleEntity;})
+					.collect(Collectors.toSet());
 		}
 		return null;
 	}

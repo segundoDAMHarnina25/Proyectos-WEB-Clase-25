@@ -22,4 +22,7 @@ public enum ERole {
 		}
 		return true;
 	}
+	public String getName() {
+		return name;
+	}
 }
