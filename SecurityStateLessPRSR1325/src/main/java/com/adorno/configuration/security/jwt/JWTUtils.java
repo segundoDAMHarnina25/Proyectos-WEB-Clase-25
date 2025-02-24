@@ -2,6 +2,8 @@ package com.adorno.configuration.security.jwt;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 
 import javax.crypto.SecretKey;
@@ -35,7 +37,10 @@ public class JWTUtils {
 		System.out.println("JWTUtils:generando access toekn");
 		return Jwts.builder()
 				// Cuidao date de sql
-				.issuedAt(Date.valueOf(LocalDate.now().plus(1, ChronoUnit.DAYS)))
+//				.issuedAt(Date.valueOf(LocalDate.now().plus(1, ChronoUnit.DAYS)))
+				.issuedAt(Date.valueOf(LocalDate.now()))
+				.expiration(Date.from(LocalDateTime.now().plusSeconds(30).atZone(ZoneId.systemDefault()).toInstant()))
+//				.expiration(Date.valueOf(LocalDate.now().plus(30,ChronoUnit.SECONDS)))
 				.subject(username)
 				// algoritmo por defecto HS256
 				.signWith(getSignatureKey())
