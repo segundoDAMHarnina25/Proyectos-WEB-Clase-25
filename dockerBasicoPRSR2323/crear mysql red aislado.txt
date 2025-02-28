@@ -1,0 +1,9 @@
+Para no incluir siempre la creacion del container del mysql
+
+docker network create harnina_net
+
+docker run -d --name mysql-standalone -e MYSQL_ROOT_PASSWORD=sa -e MYSQL_DATABASE=dockering -e MYSQL_USER=harnina -e MYSQL_PASSWORD=zzzz -p 3306:3306 --network harnina_net -v mysql-data:/var/lib/mysql  mysql:5.7
+
+luego el compose up
+
+docker network inspect harnina_net
